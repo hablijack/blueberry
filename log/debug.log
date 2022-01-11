@@ -1741,3 +1741,7 @@ TypeError: initialize() missing 1 required positional argument: 'kiwi'
 11.01.2022 17:33:36 - INFO [tornado.access] 200 GET /static/css/style.css (::1) 66.88ms
 11.01.2022 17:34:10 - INFO [tornado.access] 200 GET / (::1) 7.85ms
 11.01.2022 17:34:10 - INFO [tornado.access] 200 GET /static/js/index.js (::1) 2.54ms
+11.01.2022 17:42:54 - INFO [WEBSERVER] ... blueberry GUI is serving under 127.0.0.1:8080.
+11.01.2022 17:42:56 - INFO [tornado.access] 200 GET / (::1) 4.76ms
+11.01.2022 17:42:56 - INFO [tornado.access] 304 GET /static/css/style.css (::1) 12.67ms
+11.01.2022 17:42:56 - INFO [tornado.access] 200 GET /static/js/index.js (::1) 2.15ms
