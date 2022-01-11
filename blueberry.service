@@ -1,0 +1,19 @@
+[Unit]
+Description=Blueberry Companion BOT
+After=syslog.target sound.target
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/blueberry
+ExecStartPre=/usr/bin/amixer -c 1 sset 'Speaker' 93%
+ExecStart=/usr/bin/python3 /home/pi/blueberry/main.py
+SyslogIdentifier=blueberry
+StandardOutput=syslog
+StandardError=syslog
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
