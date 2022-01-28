@@ -6,6 +6,7 @@ import sys
 import logging
 import tornado
 from server.webserver import WebServer
+from eventsource.speech_recognition import SpeechRecognition
 
 def signal_handler(signal, frame):
   sys.exit(0)
@@ -22,5 +23,6 @@ if __name__ in '__main__':
         ]
     )
     signal.signal(signal.SIGINT, signal_handler)
+    SpeechRecognition().run()
     WebServer().serve()
-    tornado.ioloop.IOLoop.current().start()
+    #tornado.ioloop.IOLoop.current().start()

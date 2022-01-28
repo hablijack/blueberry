@@ -1,4 +1,3 @@
-import argparse
 import os
 import struct
 import wave
@@ -8,10 +7,10 @@ from threading import Thread
 import pvporcupine
 from pvrecorder import PvRecorder
 
-class PorcupineDemo(Thread):
+class SpeechRecognition(Thread):
 
     def __init__(self):
-        super(PorcupineDemo, self).__init__()
+        super(SpeechRecognition, self).__init__()
 
     def run(self):
         porcupine = None
@@ -42,10 +41,3 @@ class PorcupineDemo(Thread):
             if wav_file is not None:
                 wav_file.close()
 
-
-def main():
-    PorcupineDemo().run()
-
-
-if __name__ == '__main__':
-    main()
