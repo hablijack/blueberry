@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+import logging
 import os
 import struct
 import wave
@@ -10,7 +14,9 @@ from pvrecorder import PvRecorder
 class SpeechRecognition(Thread):
 
     def __init__(self):
+        self.logger = logging.getLogger('SPEECH_RECOGNITION')
         super(SpeechRecognition, self).__init__()
+        self.logger.debug('... initializing speech recognition module!')
 
     def run(self):
         porcupine = None
@@ -30,14 +36,12 @@ class SpeechRecognition(Thread):
                 if porcupine.process(recorder.read()) >= 0:
                     print("detected")
         except Exception as e:
-            print(e)
+            self.logger.error(e)
         finally:
             if porcupine is not None:
                 porcupine.delete()
-
             if recorder is not None:
                 recorder.delete()
-
             if wav_file is not None:
                 wav_file.close()
 

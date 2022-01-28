@@ -1,15 +1,10 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import signal
-import sys
 import logging
 import tornado
 from server.webserver import WebServer
-from eventsource.speech_recognition import SpeechRecognition
-
-def signal_handler(signal, frame):
-  sys.exit(0)
+from blueberry import Blueberry
 
 if __name__ in '__main__':
 
@@ -22,7 +17,7 @@ if __name__ in '__main__':
             logging.StreamHandler()
         ]
     )
-    signal.signal(signal.SIGINT, signal_handler)
-    SpeechRecognition().run()
-    WebServer().serve()
-    #tornado.ioloop.IOLoop.current().start()
+    blueberry = Blueberry()
+    blueberry.wakeup()
+    WebServer(blueberry).serve()
+    tornado.ioloop.IOLoop.current().start()
